@@ -1,5 +1,71 @@
-h1 {
-    text-align: center;
+body {
     font-family: sans-serif;
-    color: springgreen;
+}
+
+.box {
+    margin-bottom: 30px;
+    padding: 30px;
+    gap: 20px; /* works in box and flex if we don't set sizes for inner elements*/
+}
+
+.card {
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.box1 {
+    background-color: springgreen;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    justify-content: space-between; /* для шапок сайтов чаще всего используется */
+    align-items: center;
+}
+
+.box2 {
+    background-color: plum;
+    display: grid;
+    grid-template-columns: 100px 300px 1fr; /* 1fr - это 1 фрагмент, также можно использовать auto, но там есть свои нюансы */
+ 
+    /* grid-template-columns: repeat(8, auto); */
+    /* Выровняет каждый блок по ширине контента, в отличие от фрагментов, которые распределяются поровну */
+
+    grid-template-rows: 40px;
+}
+
+.box2>.card:nth-child(1) {
+    background-color: crimson;
+    /* grid-column-start: 2;
+    grid-row-start: 3; */
+    /* начало по линии сетки, которых всегда на одну больше, чем олонок или строк, и нумерация начинается с 1 */
+
+    /* grid-column-end: 5;
+    grid-column-start: 1; */
+
+    /* grid-column: 1 / 5;
+    заполнит всю строку */
+
+    grid-column-end: span 4;
+}
+
+.box2>.card:nth-child(2) {
+    background-color: springgreen;
+    grid-row-end: span 2;
+}
+
+.card:hover {
+    background-color: bisque;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: crimson;
+}
+
+.box3 {
+    background-color: crimson;
 }
